@@ -1,9 +1,10 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
-
+// This function creates a Nest application instance
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  // This function enables Swagger documentation
   const config = new DocumentBuilder()
     .setTitle('Chatbot API')
     .setDescription('Chatbot API description')

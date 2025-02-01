@@ -2,12 +2,12 @@ import { Injectable, Logger } from '@nestjs/common';
 import { readFileSync } from 'fs';
 import { parse } from 'csv-parse/sync';
 import { ProductDto } from '../dto/product.dto';
-
+// This class is responsible for interacting with the product data
 @Injectable()
 export class ProductDao {
   private products: ProductDto[];
   private readonly logger = new Logger(ProductDao.name);
-
+  // This constructor reads the product data from a CSV file and finds the products
   constructor() {
     try {
       const fileContent = readFileSync('products_list.csv', {

@@ -1,4 +1,5 @@
 export class ProductDto {
+  // This DTO is used to validate the product data
   constructor(
     public displayTitle: string,
     public embeddingText: string,

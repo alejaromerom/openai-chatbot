@@ -8,6 +8,7 @@ import { ToolsService } from './chatbot/services/tools.service';
 import { ProductDao } from './chatbot/dao/product.dao';
 import { HttpModule } from '@nestjs/axios';
 
+// This module is the root module of the application
 @Module({
   imports: [
     ConfigModule.forRoot(),
