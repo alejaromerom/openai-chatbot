@@ -67,28 +67,36 @@ To make a request to the chatbot API, you can use curl or any HTTP client tool l
 
 ## Chat Endpoint
 
+```bash
 - URL: http://localhost:3000/chatbot
 - Method: POST
+```
 
 ## Request Body:
 
+```bash
 {
 "message": "Can you search for products related to 'laptop'?"
 }
+```
 
 ## Example Request with curl:
 
+```bash
 curl -X POST http://localhost:3000/chatbot \
  -H "Content-Type: application/json" \
  -d '{
 "message": "Can you search for products related to 'laptop'?"
 }'
+```
 
 ## Expected Response:
 
+```bash
 {
 "response": "Here are some products related to 'laptop': ..."
 }
+```
 
 ## Contributions
 
