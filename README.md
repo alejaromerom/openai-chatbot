@@ -1,32 +1,18 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# OpenAI Chatbot
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+This project is a chatbot developed with NestJS that uses the OpenAI API to respond to user queries. The chatbot can search for products and convert currencies.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Installation
 
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+1. Clone the repository:
+   ```bash
+   git clone <REPOSITORY_URL>
+   cd openai-chatbot
+   ```
 
 ## Project setup
+
+2. Install the dependencies
 
 ```bash
 $ npm install
@@ -41,59 +27,69 @@ $ npm run start
 # watch mode
 $ npm run start:dev
 
-# production mode
-$ npm run start:prod
+
+
 ```
 
-## Run tests
+## Configure the environment variables in the .env
 
-```bash
-# unit tests
-$ npm run test
+OPENAI_API_KEY=your_openai_api_key
+OPEN_EXCHANGE_RATES_API_KEY=your_open_exchange_rates_api_key
 
-# e2e tests
-$ npm run test:e2e
+## API Documentation
 
-# test coverage
-$ npm run test:cov
-```
+The API documentation is automatically generated with Swagger. To access the documentation, start the server and navigate to http://localhost:3000/api
 
-## Deployment
+## Code Structure
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+## Controllers
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+- src/chatbot/controllers/chatbot.controller.ts: Controller that handles chat requests.
 
-```bash
-$ npm install -g mau
-$ mau deploy
-```
+## Services
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+- src/chatbot/services/openai.service.ts: Service that interacts with the OpenAI API.
+- src/chatbot/services/tools.service.ts: Service that provides additional tools like currency conversion.
 
-## Resources
+## DAO
 
-Check out a few resources that may come in handy when working with NestJS:
+- src/chatbot/dao/product.dao.ts: Data access for products.
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+## DTOS
 
-## Support
+- src/chatbot/dto/chat-request.dto.ts: DTO for chat requests.
+- src/chatbot/dto/chat-response.dto.ts: DTO for chat responses.
+- src/chatbot/dto/product.dto.ts: DTO for products.
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+# Making a Request to the API
 
-## Stay in touch
+To make a request to the chatbot API, you can use curl or any HTTP client tool like Postman. Here is an example using curl:
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+## Chat Endpoint
 
-## License
+- URL: http://localhost:3000/chatbot
+- Method: POST
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+## Request Body:
+
+{
+"message": "Can you search for products related to 'laptop'?"
+}
+
+## Example Request with curl:
+
+curl -X POST http://localhost:3000/chatbot \
+ -H "Content-Type: application/json" \
+ -d '{
+"message": "Can you search for products related to 'laptop'?"
+}'
+
+## Expected Response:
+
+{
+"response": "Here are some products related to 'laptop': ..."
+}
+
+## Contributions
+
+Contributions are welcome. Please open an issue or a pull request to discuss any changes you would like to make.
