@@ -76,7 +76,7 @@ To make a request to the chatbot API, you can use curl or any HTTP client tool l
 
 ```bash
 {
-"message": "Can you search for products related to 'laptop'?"
+"message": "I am looking for a phone"
 }
 ```
 
@@ -86,7 +86,7 @@ To make a request to the chatbot API, you can use curl or any HTTP client tool l
 curl -X POST http://localhost:3000/chatbot \
  -H "Content-Type: application/json" \
  -d '{
-"message": "Can you search for products related to 'laptop'?"
+"message": "I am looking for a phone"
 }'
 ```
 
@@ -94,7 +94,7 @@ curl -X POST http://localhost:3000/chatbot \
 
 ```bash
 {
-"response": "Here are some products related to 'laptop': ..."
+"response": "I found a phone for you! Here are the details:..."
 }
 ```
 
